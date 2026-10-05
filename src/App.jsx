@@ -10,13 +10,13 @@ import {
 } from '@cloudscape-design/components';
 import '@cloudscape-design/global-styles/index.css';
 
-// ── PROVIDERS DATA (NOW WITH REAL BADGES DIRECTLY FROM IMGS FOLDER) ──
+// ── PROVIDERS DATA (USING /assets/aws/ PATHS SO CLOUDFRONT NEVER BLOCKS THEM) ──
 const PROVIDERS_DATA = [
   {
     id: 'aws',
     name: 'Amazon Web Services',
     shortName: 'AWS',
-    logoSrc: '/aws/Amazon_Web_Services_Logo.svg.webp',
+    logoSrc: '/assets/aws/Amazon_Web_Services_Logo.svg.webp',
     invertLogo: false,
     certifications: [
       {
@@ -29,7 +29,7 @@ const PROVIDERS_DATA = [
         statusType: 'success',
         active: true,
         url: '/aws/ai-practitioner/',
-        badgeImg: '/aws/ai-practitioner.png',
+        badgeImg: '/assets/aws/ai-practitioner.png',
         domainsCount: 5,
         examsCount: 6,
         flashcardsCount: 127,
@@ -45,7 +45,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/cloud-practitioner.png',
+        badgeImg: '/assets/aws/cloud-practitioner.png',
         domainsCount: 4,
         examsCount: 6,
         flashcardsCount: 150,
@@ -61,7 +61,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/ai-business-strategist.png',
+        badgeImg: '/assets/aws/ai-business-strategist.png',
         domainsCount: 4,
         examsCount: 5,
         flashcardsCount: 130,
@@ -77,7 +77,7 @@ const PROVIDERS_DATA = [
         statusType: 'in-progress',
         active: false,
         url: '#',
-        badgeImg: '/aws/solutions-architect.png',
+        badgeImg: '/assets/aws/solutions-architect.png',
         domainsCount: 4,
         examsCount: 6,
         flashcardsCount: 180,
@@ -93,7 +93,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/developer.png',
+        badgeImg: '/assets/aws/developer.png',
         domainsCount: 4,
         examsCount: 5,
         flashcardsCount: 140,
@@ -109,7 +109,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/data-engineer.png',
+        badgeImg: '/assets/aws/data-engineer.png',
         domainsCount: 4,
         examsCount: 6,
         flashcardsCount: 160,
@@ -125,7 +125,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/machine-learning-engineer.png',
+        badgeImg: '/assets/aws/machine-learning-engineer.png',
         domainsCount: 4,
         examsCount: 5,
         flashcardsCount: 150,
@@ -141,7 +141,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/generative-ai-developer.png',
+        badgeImg: '/assets/aws/generative-ai-developer.png',
         domainsCount: 4,
         examsCount: 5,
         flashcardsCount: 145,
@@ -157,7 +157,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/solutions-architect-professional.png',
+        badgeImg: '/assets/aws/solutions-architect-professional.png',
         domainsCount: 4,
         examsCount: 6,
         flashcardsCount: 200,
@@ -173,7 +173,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/devops-engineer.png',
+        badgeImg: '/assets/aws/devops-engineer.png',
         domainsCount: 6,
         examsCount: 6,
         flashcardsCount: 190,
@@ -189,7 +189,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/advanced-networking.png',
+        badgeImg: '/assets/aws/advanced-networking.png',
         domainsCount: 4,
         examsCount: 5,
         flashcardsCount: 160,
@@ -205,7 +205,7 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
-        badgeImg: '/aws/security.png',
+        badgeImg: '/assets/aws/security.png',
         domainsCount: 5,
         examsCount: 6,
         flashcardsCount: 170,
@@ -311,7 +311,7 @@ const PROVIDERS_DATA = [
     name: 'HashiCorp',
     shortName: 'HashiCorp',
     logoSrc: '/hashicorp/HashiCorp_Logo_no_text.png',
-    invertLogo: true, // Invertir color para que quede en blanco puro
+    invertLogo: true,
     certifications: [
       {
         id: 'terraform-003',
@@ -352,7 +352,7 @@ const PROVIDERS_DATA = [
     name: 'GitHub',
     shortName: 'GitHub',
     logoSrc: '/github/25231.png',
-    invertLogo: true, // Invertir color para que quede en blanco puro
+    invertLogo: true,
     certifications: [
       {
         id: 'gh-actions',
@@ -454,11 +454,11 @@ export default function App() {
   return (
     <div className="awsui-dark-mode certhub-root-layout">
       
-      {/* ── 1. UNIFIED SINGLE TOP BAR (BIGGER LOGO LEFT | TABS CENTER | SEARCH RIGHT) ── */}
+      {/* ── 1. UNIFIED SINGLE TOP BAR ── */}
       <header className="certhub-unified-header">
         <div className="header-unified-inner">
           
-          {/* LEFT: CERTHUB LOGO (BIGGER & FULL LEFT) + TAGLINE */}
+          {/* LEFT: CERTHUB LOGO (MUCHO MÁS GRANDE 62px) + TEXTO */}
           <div className="header-brand-box">
             <img src="/logo.svg" alt="CertHub Logo" className="header-brand-logo" />
             <div className="header-brand-texts">
@@ -531,7 +531,7 @@ export default function App() {
                 {filteredCerts.map(cert => (
                   <div key={cert.id} className={`cert-badge-card ${cert.active ? 'active' : 'disabled'}`}>
                     
-                    {/* BADGE VISUAL (OFFICIAL PNG BADGE IF PRESENT) */}
+                    {/* BADGE VISUAL */}
                     <div className="badge-visual-wrapper">
                       {cert.badgeImg ? (
                         <img src={cert.badgeImg} alt={cert.title} className="badge-official-png" />
