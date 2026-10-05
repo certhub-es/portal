@@ -43,75 +43,77 @@ body {
   flex-direction: column;
 }
 
-/* ── 1. UNIFIED SINGLE FIXED HEADER ── */
+/* ── 1. UNIFIED SINGLE FIXED HEADER (FULL WIDTH TO EDGES) ── */
 .certhub-unified-header {
   background: #16253b;
   border-bottom: 1px solid #2b4162;
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 10px 24px;
+  padding: 8px 16px;
+  width: 100%;
 }
 
 .header-unified-inner {
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 
-/* LEFT: BRANDING */
+/* LEFT: LOGO A LA IZQUIERDA DEL TODO + TEXTO PEGADO */
 .header-brand-box {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px; /* Texto bien pegado al logo */
   flex-shrink: 0;
 }
 
 .header-brand-logo {
-  width: 36px;
-  height: 36px;
+  width: 48px;  /* Logo visiblemente más grande */
+  height: 48px;
   object-fit: contain;
 }
 
 .header-brand-texts {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .header-brand-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #fbfbfb;
   line-height: 1.1;
+  letter-spacing: -0.3px;
 }
 
 .header-brand-tagline {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: #9ba7b6;
   font-weight: 500;
   white-space: nowrap;
 }
 
-/* CENTER: PROVIDER TABS */
+/* CENTER: PROVIDER TABS SIN SCROLL LATERAL */
 .header-provider-tabs {
   display: flex;
   align-items: center;
   gap: 8px;
-  overflow-x: auto;
-  padding: 2px 4px;
-  flex: 1;
+  flex-wrap: nowrap;
+  overflow: visible; /* Elimina la barra de scroll */
   justify-content: center;
+  flex: 1;
 }
 
 .provider-tab-pill {
   background: #111d2d;
   border: 1px solid #2b4162;
   border-radius: 6px;
-  padding: 6px 14px;
+  padding: 7px 14px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -154,25 +156,25 @@ body {
 
 .pill-label-text {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #fbfbfb;
 }
 
-/* RIGHT: SEARCH BAR */
+/* RIGHT: BUSCADOR */
 .header-search-box {
-  width: 280px;
+  width: 260px;
   flex-shrink: 0;
 }
 
 /* ── 2. DYNAMIC CONTENT AREA ── */
 .main-providers-content-area {
-  padding: 24px 24px 64px;
+  padding: 24px 20px 64px;
   flex: 1;
 }
 
 .content-max-width {
-  max-width: 1300px;
+  max-width: 1350px;
   margin: 0 auto;
 }
 
@@ -410,19 +412,4 @@ body {
   color: #9ba7b6;
   padding: 20px 0;
   border-top: 1px solid #253b59;
-}
-
-@media (max-width: 1100px) {
-  .header-unified-inner {
-    flex-wrap: wrap;
-  }
-  .header-provider-tabs {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
-  }
-  .header-search-box {
-    width: auto;
-    flex: 1;
-  }
 }
