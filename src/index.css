@@ -436,3 +436,105 @@ body {
 .cert-badge-card.clickable-card:hover .badge-full-title {
   color: #539fe5;
 }
+
+/* ── RESPONSIVE ADAPTATIONS (MOBILE & TABLET) ── */
+@media (max-width: 900px) {
+  .header-unified-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .header-brand-box {
+    order: 1;
+  }
+
+  .header-search-box {
+    order: 2;
+    flex: 1;
+    min-width: 180px;
+    max-width: 100%;
+  }
+
+  .header-provider-tabs {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .header-provider-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .certhub-unified-header {
+    padding: 8px 12px;
+  }
+
+  .header-brand-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: -10px;
+  }
+
+  .header-brand-name {
+    font-size: 1.35rem;
+  }
+
+  .header-brand-tagline {
+    display: none;
+  }
+
+  .badges-grid-container {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cert-badge-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .badge-visual-wrapper {
+    width: 80px;
+  }
+
+  .badge-official-png {
+    max-width: 78px;
+    max-height: 88px;
+  }
+
+  .badge-placeholder-box {
+    width: 75px;
+    height: 85px;
+  }
+
+  .badge-full-title {
+    font-size: 0.98rem;
+  }
+
+  .badge-summary-text {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .floating-social-container {
+    bottom: 12px;
+    left: 12px;
+    gap: 8px;
+  }
+
+  .floating-social-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floating-social-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+}
