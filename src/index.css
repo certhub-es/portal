@@ -357,3 +357,55 @@ body {
   padding: 20px 0;
   border-top: 1px solid #253b59;
 }
+
+/* ── FLOATING SOCIAL ACTIONS ── */
+.floating-social-container {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.floating-social-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 27, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(83, 159, 229, 0.35);
+  border-radius: 50%;
+  color: #d1dbe5;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.floating-social-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.floating-social-btn.linkedin:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 119, 181, 0.5);
+}
+
+.floating-social-btn.buymeacoffee:hover {
+  background: #FFDD00;
+  border-color: #FFDD00;
+  color: #000000;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 6px 18px rgba(255, 221, 0, 0.5);
+}
