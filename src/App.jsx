@@ -180,26 +180,128 @@ const PROVIDERS_DATA = [
     id: 'gcp',
     name: 'Google Cloud',
     shortName: 'Google Cloud',
-    logoSrc: '/gcp/Google_Cloud_icon_(2026).svg.webp',
+    logoSrc: '/gcp/google-cloud-icon.webp',
     invertLogo: false,
     certifications: [
       {
         id: 'gcp-cdl',
         code: 'CDL',
         title: 'Cloud Digital Leader',
-        fullName: 'Google Cloud Digital Leader',
+        fullName: 'Google Cloud Certified Cloud Digital Leader',
         active: false,
         url: '#',
-        desc: 'Transformación digital, conceptos clave de Google Cloud y cómo los productos impulsan organizaciones.'
+        badgeImg: '/gcp/cloud-digital-leader.png',
+        desc: 'Transformación digital con la nube, conceptos y terminología de Google Cloud, y cómo los productos y soluciones impulsan a las organizaciones.'
+      },
+      {
+        id: 'gcp-genai-leader',
+        code: 'GAIL',
+        title: 'Generative AI Leader',
+        fullName: 'Google Cloud Certified Generative AI Leader',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/generative-ai-leader.png',
+        desc: 'Conceptos fundamentales de Inteligencia Artificial Generativa, modelos fundacionales de Google (Gemini), IA responsable y casos de uso empresariales.'
       },
       {
         id: 'gcp-ace',
-        code: 'GCP-ACE',
+        code: 'ACE',
         title: 'Associate Cloud Engineer',
-        fullName: 'Google Cloud Associate Cloud Engineer',
+        fullName: 'Google Cloud Certified Associate Cloud Engineer',
         active: false,
         url: '#',
-        desc: 'Despliegue y monitorización de aplicaciones, gestión de Kubernetes (GKE), Cloud Run y configuración de IAM.'
+        badgeImg: '/gcp/associate-cloud-engineer.png',
+        desc: 'Despliegue y monitorización de aplicaciones, gestión de proyectos en GCP, operaciones con Google Kubernetes Engine (GKE), Cloud Run e IAM.'
+      },
+      {
+        id: 'gcp-pca',
+        code: 'PCA',
+        title: 'Professional Cloud Architect',
+        fullName: 'Google Cloud Certified Professional Cloud Architect',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-cloud-architect.png',
+        desc: 'Diseño, desarrollo y administración de soluciones cloud dinámicas, robustas, seguras, altamente escalables y conformes a mejores prácticas.'
+      },
+      {
+        id: 'gcp-pcd',
+        code: 'PCD',
+        title: 'Professional Cloud Developer',
+        fullName: 'Google Cloud Certified Professional Cloud Developer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-cloud-developer.png',
+        desc: 'Construcción de aplicaciones cloud-native escalables con servicios gestionados de GCP, APIs, bases de datos y prácticas modernas de desarrollo.'
+      },
+      {
+        id: 'gcp-pde',
+        code: 'PDE',
+        title: 'Professional Data Engineer',
+        fullName: 'Google Cloud Certified Professional Data Engineer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-data-engineer.png',
+        desc: 'Diseño y construcción de sistemas de procesamiento de datos en tiempo real y batch, BigQuery, Dataflow, Dataproc y modelado de datos.'
+      },
+      {
+        id: 'gcp-pmle',
+        code: 'PMLE',
+        title: 'Professional Machine Learning Engineer',
+        fullName: 'Google Cloud Certified Professional Machine Learning Engineer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-machine-learning-engineer.png',
+        desc: 'Diseño, entrenamiento, escalado y despliegue de modelos de Machine Learning y pipelines de MLOps en Vertex AI de Google Cloud.'
+      },
+      {
+        id: 'gcp-pcse',
+        code: 'PCSE',
+        title: 'Professional Cloud Security Engineer',
+        fullName: 'Google Cloud Certified Professional Cloud Security Engineer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-cloud-security-engineer.png',
+        desc: 'Diseño e implementación de infraestructuras seguras en GCP, gestión de identidades y accesos, protección de red, cifrado y cumplimiento.'
+      },
+      {
+        id: 'gcp-pcne',
+        code: 'PCNE',
+        title: 'Professional Cloud Network Engineer',
+        fullName: 'Google Cloud Certified Professional Cloud Network Engineer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-cloud-network-engineer.png',
+        desc: 'Implementación y gestión de arquitecturas de red en GCP, Cloud Interconnect, VPCs compartidas, Cloud Armor, enrutamiento y seguridad de red.'
+      },
+      {
+        id: 'gcp-pcde',
+        code: 'PCDOps',
+        title: 'Professional Cloud DevOps Engineer',
+        fullName: 'Google Cloud Certified Professional Cloud DevOps Engineer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-cloud-devops-engineer.png',
+        desc: 'Prácticas de SRE y DevOps, optimización del ciclo de vida de desarrollo de software, automatización de CI/CD, observabilidad con Cloud Monitoring.'
+      },
+      {
+        id: 'gcp-pcdbe',
+        code: 'PCDBE',
+        title: 'Professional Cloud Database Engineer',
+        fullName: 'Google Cloud Certified Professional Cloud Database Engineer',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-cloud-database-engineer.png',
+        desc: 'Diseño, creación, administración y resolución de problemas de soluciones de bases de datos relacionales y NoSQL en GCP (Cloud Spanner, Cloud SQL, Bigtable).'
+      },
+      {
+        id: 'gcp-pgwa',
+        code: 'PGWA',
+        title: 'Google Workspace Administrator',
+        fullName: 'Google Cloud Certified Professional Google Workspace Administrator',
+        active: false,
+        url: '#',
+        badgeImg: '/gcp/professional-google-workspace-administrator.png',
+        desc: 'Transformación de objetivos de negocio en configuraciones y políticas de Google Workspace, gestión de usuarios, dispositivos, seguridad y correo.'
       }
     ]
   },
