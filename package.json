@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && aws s3 sync dist/ s3://aws-ai-practitioner-secure-261773368721-eu-west-1/ --exclude \"aws/*\" && aws cloudfront create-invalidation --distribution-id EWFKMUPN8D7A2 --paths \"/index.html\" \"/\" \"/assets/*\""
+    "deploy": "vite build && aws s3 sync dist/ s3://certhub-portal/ --exclude \"aws/*\" && aws cloudfront create-invalidation --distribution-id EWFKMUPN8D7A2 --paths \"/index.html\" \"/\" \"/assets/*\""
   },
   "dependencies": {
     "@cloudscape-design/components": "^3.0.1391",
