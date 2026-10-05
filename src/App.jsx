@@ -5,12 +5,11 @@ import {
   Button,
   Badge,
   Input,
-  Link,
-  StatusIndicator
+  Link
 } from '@cloudscape-design/components';
 import '@cloudscape-design/global-styles/index.css';
 
-// ── PROVIDERS DATA (WITHOUT METRIC PILLS) ──
+// ── PROVIDERS DATA (CLEANED) ──
 const PROVIDERS_DATA = [
   {
     id: 'aws',
@@ -24,9 +23,6 @@ const PROVIDERS_DATA = [
         code: 'AIF-C01',
         title: 'AI Practitioner',
         fullName: 'AWS Certified AI Practitioner',
-        level: 'FOUNDATIONAL',
-        status: 'DISPONIBLE',
-        statusType: 'success',
         active: true,
         url: '/aws/ai-practitioner/',
         badgeImg: '/assets/aws/ai-practitioner.png',
@@ -37,9 +33,6 @@ const PROVIDERS_DATA = [
         code: 'CLF-C02',
         title: 'Cloud Practitioner',
         fullName: 'AWS Certified Cloud Practitioner',
-        level: 'FOUNDATIONAL',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/cloud-practitioner.png',
@@ -50,9 +43,6 @@ const PROVIDERS_DATA = [
         code: 'AIB-C01',
         title: 'AI Business Strategist',
         fullName: 'AWS Certified AI Business Strategist',
-        level: 'FOUNDATIONAL',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/ai-business-strategist.png',
@@ -63,9 +53,6 @@ const PROVIDERS_DATA = [
         code: 'SAA-C03',
         title: 'Solutions Architect',
         fullName: 'AWS Certified Solutions Architect Associate',
-        level: 'ASSOCIATE',
-        status: 'EN DESARROLLO',
-        statusType: 'in-progress',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/solutions-architect.png',
@@ -76,9 +63,6 @@ const PROVIDERS_DATA = [
         code: 'DVA-C02',
         title: 'Developer Associate',
         fullName: 'AWS Certified Developer Associate',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/developer.png',
@@ -89,9 +73,6 @@ const PROVIDERS_DATA = [
         code: 'DEA-C01',
         title: 'Data Engineer Associate',
         fullName: 'AWS Certified Data Engineer Associate',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/data-engineer.png',
@@ -102,9 +83,6 @@ const PROVIDERS_DATA = [
         code: 'MLE-C01',
         title: 'Machine Learning Engineer',
         fullName: 'AWS Certified Machine Learning Engineer Associate',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/machine-learning-engineer.png',
@@ -115,9 +93,6 @@ const PROVIDERS_DATA = [
         code: 'AIF-DEV',
         title: 'Generative AI Developer',
         fullName: 'AWS Certified Generative AI Developer',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/generative-ai-developer.png',
@@ -128,9 +103,6 @@ const PROVIDERS_DATA = [
         code: 'SAP-C02',
         title: 'Solutions Architect Professional',
         fullName: 'AWS Certified Solutions Architect Professional',
-        level: 'PROFESSIONAL',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/solutions-architect-professional.png',
@@ -141,9 +113,6 @@ const PROVIDERS_DATA = [
         code: 'DOP-C02',
         title: 'DevOps Engineer Professional',
         fullName: 'AWS Certified DevOps Engineer Professional',
-        level: 'PROFESSIONAL',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/devops-engineer.png',
@@ -154,9 +123,6 @@ const PROVIDERS_DATA = [
         code: 'ANS-C01',
         title: 'Advanced Networking Specialty',
         fullName: 'AWS Certified Advanced Networking Specialty',
-        level: 'SPECIALTY',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/advanced-networking.png',
@@ -167,9 +133,6 @@ const PROVIDERS_DATA = [
         code: 'SCS-C02',
         title: 'Security Specialty',
         fullName: 'AWS Certified Security Specialty',
-        level: 'SPECIALTY',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/assets/aws/security.png',
@@ -189,9 +152,6 @@ const PROVIDERS_DATA = [
         code: 'AZ-900',
         title: 'Azure Fundamentals',
         fullName: 'Microsoft Certified: Azure Fundamentals',
-        level: 'FUNDAMENTALS',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         desc: 'Conceptos de nube, servicios de computación, red, almacenamiento, seguridad y gestión de costes en Azure.'
@@ -201,9 +161,6 @@ const PROVIDERS_DATA = [
         code: 'AI-900',
         title: 'Azure AI Fundamentals',
         fullName: 'Microsoft Certified: Azure AI Fundamentals',
-        level: 'FUNDAMENTALS',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         desc: 'Principios de IA, Computer Vision, Procesamiento de Lenguaje Natural (NLP) y Azure OpenAI Services.'
@@ -213,9 +170,6 @@ const PROVIDERS_DATA = [
         code: 'AZ-104',
         title: 'Azure Administrator',
         fullName: 'Microsoft Certified: Azure Administrator Associate',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         desc: 'Implementación, administración y monitorización de identidades, gobierno, almacenamiento y redes virtuales.'
@@ -234,9 +188,6 @@ const PROVIDERS_DATA = [
         code: 'CDL',
         title: 'Cloud Digital Leader',
         fullName: 'Google Cloud Digital Leader',
-        level: 'FOUNDATIONAL',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         desc: 'Transformación digital, conceptos clave de Google Cloud y cómo los productos impulsan organizaciones.'
@@ -246,9 +197,6 @@ const PROVIDERS_DATA = [
         code: 'GCP-ACE',
         title: 'Associate Cloud Engineer',
         fullName: 'Google Cloud Associate Cloud Engineer',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         desc: 'Despliegue y monitorización de aplicaciones, gestión de Kubernetes (GKE), Cloud Run y configuración de IAM.'
@@ -267,9 +215,6 @@ const PROVIDERS_DATA = [
         code: 'TA-003',
         title: 'Terraform Associate',
         fullName: 'HashiCorp Certified: Terraform Associate (003)',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/hashicorp/terraform-associate.png',
@@ -280,9 +225,6 @@ const PROVIDERS_DATA = [
         code: 'TA-ADV',
         title: 'Authoring & Operations',
         fullName: 'HashiCorp Certified: Authoring & Operations Advanced',
-        level: 'ADVANCED',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/hashicorp/authoring-operations-advanced.png',
@@ -302,9 +244,6 @@ const PROVIDERS_DATA = [
         code: 'GH-ACT',
         title: 'GitHub Actions',
         fullName: 'GitHub Actions Certification',
-        level: 'SPECIALTY',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/github/actions.png',
@@ -315,9 +254,6 @@ const PROVIDERS_DATA = [
         code: 'GH-FND',
         title: 'GitHub Foundations',
         fullName: 'GitHub Foundations Certification',
-        level: 'FOUNDATIONAL',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/github/foundations.png',
@@ -328,9 +264,6 @@ const PROVIDERS_DATA = [
         code: 'GH-SEC',
         title: 'Advanced Security',
         fullName: 'GitHub Advanced Security Certification',
-        level: 'SPECIALTY',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/github/advanced-security.png',
@@ -341,9 +274,6 @@ const PROVIDERS_DATA = [
         code: 'GH-COP',
         title: 'GitHub Copilot',
         fullName: 'GitHub Copilot Certification',
-        level: 'SPECIALTY',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/github/copilot.png',
@@ -354,9 +284,6 @@ const PROVIDERS_DATA = [
         code: 'GH-ADM',
         title: 'GitHub Administration',
         fullName: 'GitHub Administration Certification',
-        level: 'SPECIALTY',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
         active: false,
         url: '#',
         badgeImg: '/github/admin.png',
@@ -382,11 +309,11 @@ export default function App() {
   return (
     <div className="awsui-dark-mode certhub-root-layout">
       
-      {/* ── 1. UNIFIED SINGLE TOP BAR ── */}
+      {/* ── 1. UNIFIED TOP BAR ── */}
       <header className="certhub-unified-header">
         <div className="header-unified-inner">
           
-          {/* LEFT: CERTHUB LOGO (62px) + TEXTO */}
+          {/* LEFT: CERTHUB LOGO + TEXT */}
           <div className="header-brand-box">
             <img src="/logo.svg" alt="CertHub Logo" className="header-brand-logo" />
             <div className="header-brand-texts">
@@ -457,7 +384,10 @@ export default function App() {
             {filteredCerts.length > 0 ? (
               <div className="badges-grid-container">
                 {filteredCerts.map(cert => (
-                  <div key={cert.id} className={`cert-badge-card ${cert.active ? 'active' : 'disabled'}`}>
+                  <div 
+                    key={cert.id} 
+                    className={`cert-badge-card ${cert.active ? 'active-ready' : 'in-development-dimmed'}`}
+                  >
                     
                     {/* BADGE VISUAL */}
                     <div className="badge-visual-wrapper">
@@ -466,7 +396,6 @@ export default function App() {
                       ) : (
                         <div className="badge-placeholder-box">
                           <span className="badge-placeholder-code">{cert.code}</span>
-                          <span className="badge-placeholder-level">{cert.level}</span>
                         </div>
                       )}
                     </div>
@@ -475,7 +404,6 @@ export default function App() {
                     <div className="badge-details-wrapper">
                       <div className="badge-code-row">
                         <span className="badge-exam-code">{cert.code}</span>
-                        <StatusIndicator type={cert.statusType}>{cert.status}</StatusIndicator>
                       </div>
 
                       <h3 className="badge-full-title">{cert.fullName}</h3>
