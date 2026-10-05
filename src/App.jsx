@@ -439,16 +439,7 @@ export default function App() {
             )}
           </Container>
 
-          {/* ── FOOTER ── */}
-          <footer className="certhub-portal-footer">
-            <p>
-              © 2026 <strong>CertHub</strong> — Creado por{' '}
-              <Link external href="https://www.linkedin.com/in/danielibabet">
-                Daniel Ibáñez
-              </Link>
-              . Todos los logos pertenecen a sus respectivos proveedores (AWS, Microsoft Azure, Google Cloud, HashiCorp, GitHub).
-            </p>
-          </footer>
+
 
         </div>
       </main>
