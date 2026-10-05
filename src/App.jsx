@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import {
-  TopNavigation,
   Container,
   Box,
-  SpaceBetween,
   Button,
   Badge,
   Input,
@@ -35,7 +33,7 @@ function HexBadge({ title, level, category = 'FOUNDATIONAL', color = '#232f3e', 
   );
 }
 
-// ── CERTIFICATIONS DATA (CLEANED PATHS) ──
+// ── CERTIFICATIONS DATA ──
 const PROVIDERS_DATA = [
   {
     id: 'aws',
@@ -316,61 +314,54 @@ export default function App() {
   return (
     <div className="awsui-dark-mode certhub-root-layout">
       
-      {/* ── 1. COMPACT FIXED HEADER BAR ── */}
-      <header className="certhub-compact-header">
-        <div className="header-content-inner">
-          <div className="header-branding">
-            <img src="/logo.svg" alt="CertHub Logo" className="header-logo-svg" />
-            <div className="header-titles">
-              <h1 className="header-main-title">CertHub</h1>
-              <span className="header-sub-tagline">Plataforma de estudio de certificaciones oficiales</span>
+      {/* ── 1. UNIFIED SINGLE TOP BAR (BRANDING LEFT | TABS CENTER | SEARCH RIGHT) ── */}
+      <header className="certhub-unified-header">
+        <div className="header-unified-inner">
+          
+          {/* LEFT: CERTHUB LOGO & TAGLINE */}
+          <div className="header-brand-box">
+            <img src="/logo.svg" alt="CertHub Logo" className="header-brand-logo" />
+            <div className="header-brand-texts">
+              <span className="header-brand-name">CertHub</span>
+              <span className="header-brand-tagline">Plataforma de estudio de certificaciones oficiales</span>
             </div>
           </div>
 
-          <div className="header-search-bar">
+          {/* CENTER: PROVIDER TABS */}
+          <nav className="header-provider-tabs">
+            {PROVIDERS_DATA.map(p => {
+              const isSelected = selectedProviderId === p.id;
+              return (
+                <button
+                  key={p.id}
+                  className={`provider-tab-pill ${isSelected ? 'active' : ''}`}
+                  onClick={() => setSelectedProviderId(p.id)}
+                  title={p.name}
+                >
+                  <div className="pill-icon-wrapper">
+                    <img src={p.logoSrc} alt={p.name} className="provider-img-fluid" />
+                  </div>
+                  <span className="pill-label-text">{p.name}</span>
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* RIGHT: SEARCH BAR */}
+          <div className="header-search-box">
             <Input
               type="search"
-              placeholder="Buscar certificación o examen (AI Practitioner, SAA-C03...)"
+              placeholder="Buscar certificación o examen..."
               value={searchQuery}
               onChange={({ detail }) => setSearchQuery(detail.value)}
               clearAriaLabel="Limpiar"
             />
           </div>
 
-          <div className="header-quick-actions">
-            <Button
-              variant="primary"
-              iconName="external"
-              href="/aws/ai-practitioner/"
-            >
-              Campus AI Practitioner
-            </Button>
-          </div>
         </div>
       </header>
 
-      {/* ── 2. SINGLE SELECTOR TABS BAR (ICON + TITLE ONLY) ── */}
-      <div className="provider-tabs-bar-container">
-        <div className="provider-tabs-wrapper">
-          {PROVIDERS_DATA.map(p => {
-            const isSelected = selectedProviderId === p.id;
-            return (
-              <button
-                key={p.id}
-                className={`provider-tab-card ${isSelected ? 'active' : ''}`}
-                onClick={() => setSelectedProviderId(p.id)}
-              >
-                <div className="tab-logo-img-wrapper">
-                  <img src={p.logoSrc} alt={p.name} className="provider-img-fluid" />
-                </div>
-                <span className="tab-title-text">{p.name}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* ── 3. DYNAMIC CONTENT BODY (UPDATES ACCORDING TO SELECTED TAB) ── */}
+      {/* ── 2. DYNAMIC CONTENT BODY ── */}
       <main className="main-providers-content-area">
         <div className="content-max-width">
           
@@ -448,7 +439,7 @@ export default function App() {
             )}
           </Container>
 
-          {/* ── FOOTER BAR ── */}
+          {/* ── FOOTER ── */}
           <footer className="certhub-portal-footer">
             <p>
               © 2026 <strong>CertHub</strong> — Creado por{' '}

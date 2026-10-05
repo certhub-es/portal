@@ -43,8 +43,8 @@ body {
   flex-direction: column;
 }
 
-/* ── 1. COMPACT FIXED HEADER ── */
-.certhub-compact-header {
+/* ── 1. UNIFIED SINGLE FIXED HEADER ── */
+.certhub-unified-header {
   background: #16253b;
   border-bottom: 1px solid #2b4162;
   position: sticky;
@@ -53,8 +53,8 @@ body {
   padding: 10px 24px;
 }
 
-.header-content-inner {
-  max-width: 1200px;
+.header-unified-inner {
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -62,74 +62,59 @@ body {
   gap: 20px;
 }
 
-.header-branding {
+/* LEFT: BRANDING */
+.header-brand-box {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
 }
 
-.header-logo-svg {
-  width: 38px;
-  height: 38px;
+.header-brand-logo {
+  width: 36px;
+  height: 36px;
   object-fit: contain;
 }
 
-.header-titles {
+.header-brand-texts {
   display: flex;
   flex-direction: column;
 }
 
-.header-main-title {
+.header-brand-name {
   font-family: 'Outfit', sans-serif;
   font-size: 1.25rem;
   font-weight: 800;
   color: #fbfbfb;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
-.header-sub-tagline {
-  font-size: 0.78rem;
+.header-brand-tagline {
+  font-size: 0.74rem;
   color: #9ba7b6;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-.header-search-bar {
-  flex: 1;
-  max-width: 480px;
-}
-
-.header-quick-actions {
-  flex-shrink: 0;
-}
-
-/* ── 2. SINGLE SELECTOR TABS BAR (STICKY) ── */
-.provider-tabs-bar-container {
-  background: #111d2d;
-  border-bottom: 1px solid #2b4162;
-  position: sticky;
-  top: 59px;
-  z-index: 90;
-  padding: 10px 24px;
-}
-
-.provider-tabs-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+/* CENTER: PROVIDER TABS */
+.header-provider-tabs {
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 8px;
   overflow-x: auto;
+  padding: 2px 4px;
+  flex: 1;
   justify-content: center;
 }
 
-.provider-tab-card {
-  background: #16253b;
+.provider-tab-pill {
+  background: #111d2d;
   border: 1px solid #2b4162;
   border-radius: 6px;
-  padding: 8px 18px;
+  padding: 6px 14px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: #d1dbe5;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -138,23 +123,23 @@ body {
   flex-shrink: 0;
 }
 
-.provider-tab-card:hover {
+.provider-tab-pill:hover {
   background: #233957;
   border-color: #539fe5;
   color: #fff;
   transform: translateY(-1px);
 }
 
-.provider-tab-card.active {
+.provider-tab-pill.active {
   background: #1d3b63;
   border-color: #539fe5;
   color: #fff;
-  box-shadow: 0 0 10px rgba(83, 159, 229, 0.4);
+  box-shadow: 0 0 10px rgba(83, 159, 229, 0.45);
 }
 
-.tab-logo-img-wrapper {
-  width: 24px;
-  height: 24px;
+.pill-icon-wrapper {
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,21 +152,27 @@ body {
   display: block;
 }
 
-.tab-title-text {
+.pill-label-text {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: #fbfbfb;
 }
 
-/* ── 3. DYNAMIC CONTENT AREA ── */
+/* RIGHT: SEARCH BAR */
+.header-search-box {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+/* ── 2. DYNAMIC CONTENT AREA ── */
 .main-providers-content-area {
   padding: 24px 24px 64px;
   flex: 1;
 }
 
 .content-max-width {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -421,12 +412,17 @@ body {
   border-top: 1px solid #253b59;
 }
 
-@media (max-width: 800px) {
-  .header-content-inner {
-    flex-direction: column;
-    align-items: stretch;
+@media (max-width: 1100px) {
+  .header-unified-inner {
+    flex-wrap: wrap;
   }
-  .header-search-bar {
-    max-width: 100%;
+  .header-provider-tabs {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .header-search-box {
+    width: auto;
+    flex: 1;
   }
 }
