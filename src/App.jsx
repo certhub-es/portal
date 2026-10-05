@@ -490,7 +490,7 @@ export default function App() {
                             href={cert.url}
                             fullWidth
                           >
-                            Entrar al Campus
+                            Entrar
                           </Button>
                         ) : (
                           <Button disabled fullWidth>
