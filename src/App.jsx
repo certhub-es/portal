@@ -204,11 +204,11 @@ const PROVIDERS_DATA = [
     ]
   },
   {
-    id: 'hashicorp',
-    name: 'HashiCorp',
-    shortName: 'HashiCorp',
-    logoSrc: '/hashicorp/HashiCorp_Logo_no_text.png',
-    invertLogo: true,
+    id: 'terraform',
+    name: 'Terraform',
+    shortName: 'Terraform',
+    logoSrc: '/terraform/terraform.webp',
+    invertLogo: false,
     certifications: [
       {
         id: 'terraform-003',
