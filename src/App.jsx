@@ -383,53 +383,73 @@ export default function App() {
           >
             {filteredCerts.length > 0 ? (
               <div className="badges-grid-container">
-                {filteredCerts.map(cert => (
-                  <div 
-                    key={cert.id} 
-                    className={`cert-badge-card ${cert.active ? 'active-ready' : 'in-development-dimmed'}`}
-                  >
-                    
-                    {/* BADGE VISUAL */}
-                    <div className="badge-visual-wrapper">
-                      {cert.badgeImg ? (
-                        <img src={cert.badgeImg} alt={cert.title} className="badge-official-png" />
-                      ) : (
-                        <div className="badge-placeholder-box">
-                          <span className="badge-placeholder-code">{cert.code}</span>
+                {filteredCerts.map(cert => {
+                  if (cert.active) {
+                    return (
+                      <a 
+                        key={cert.id} 
+                        href={cert.url}
+                        className="cert-badge-card active-ready clickable-card"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                      >
+                        {/* BADGE VISUAL */}
+                        <div className="badge-visual-wrapper">
+                          {cert.badgeImg ? (
+                            <img src={cert.badgeImg} alt={cert.title} className="badge-official-png" />
+                          ) : (
+                            <div className="badge-placeholder-box">
+                              <span className="badge-placeholder-code">{cert.code}</span>
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
 
-                    {/* CERT DETAILS */}
-                    <div className="badge-details-wrapper">
-                      <div className="badge-code-row">
-                        <span className="badge-exam-code">{cert.code}</span>
+                        {/* CERT DETAILS */}
+                        <div className="badge-details-wrapper">
+                          <div className="badge-code-row">
+                            <span className="badge-exam-code">{cert.code}</span>
+                          </div>
+
+                          <h3 className="badge-full-title">{cert.fullName}</h3>
+                          <p className="badge-summary-text">{cert.desc}</p>
+                        </div>
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div 
+                      key={cert.id} 
+                      className="cert-badge-card in-development-dimmed"
+                    >
+                      {/* BADGE VISUAL */}
+                      <div className="badge-visual-wrapper">
+                        {cert.badgeImg ? (
+                          <img src={cert.badgeImg} alt={cert.title} className="badge-official-png" />
+                        ) : (
+                          <div className="badge-placeholder-box">
+                            <span className="badge-placeholder-code">{cert.code}</span>
+                          </div>
+                        )}
                       </div>
 
-                      <h3 className="badge-full-title">{cert.fullName}</h3>
-                      <p className="badge-summary-text">{cert.desc}</p>
+                      {/* CERT DETAILS */}
+                      <div className="badge-details-wrapper">
+                        <div className="badge-code-row">
+                          <span className="badge-exam-code">{cert.code}</span>
+                        </div>
 
-                      <div className="badge-action-row">
-                        {cert.active ? (
-                          <Button 
-                            variant="primary" 
-                            iconName="external" 
-                            iconAlign="right"
-                            href={cert.url}
-                            fullWidth
-                          >
-                            Entrar
-                          </Button>
-                        ) : (
+                        <h3 className="badge-full-title">{cert.fullName}</h3>
+                        <p className="badge-summary-text">{cert.desc}</p>
+
+                        <div className="badge-action-row">
                           <Button disabled fullWidth>
                             En Desarrollo
                           </Button>
-                        )}
+                        </div>
                       </div>
                     </div>
-
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="empty-search-box">
