@@ -10,36 +10,14 @@ import {
 } from '@cloudscape-design/components';
 import '@cloudscape-design/global-styles/index.css';
 
-// ── HEXAGON BADGE COMPONENT ──
-function HexBadge({ title, level, category = 'FOUNDATIONAL', color = '#232f3e', accent = '#ff9900' }) {
-  return (
-    <div className="hex-badge-container" style={{ '--badge-bg': color, '--badge-accent': accent }}>
-      <svg viewBox="0 0 100 115" className="hex-svg">
-        <polygon points="50 2, 98 28, 98 87, 50 113, 2 87, 2 28" className="hex-border" />
-        <polygon points="50 7, 93 31, 93 84, 50 108, 7 84, 7 31" className="hex-inner" />
-      </svg>
-      <div className="hex-content">
-        <div className="hex-header-brand">
-          <span className="hex-brand-text">aws</span>
-          <span className="hex-check">✔</span>
-          <span className="hex-certified">certified</span>
-        </div>
-        <div className="hex-divider"></div>
-        <div className="hex-main-title">{title}</div>
-        <div className="hex-divider"></div>
-        <div className="hex-footer-level">{level || category}</div>
-      </div>
-    </div>
-  );
-}
-
-// ── CERTIFICATIONS DATA ──
+// ── PROVIDERS DATA (NOW WITH REAL BADGES DIRECTLY FROM IMGS FOLDER) ──
 const PROVIDERS_DATA = [
   {
     id: 'aws',
     name: 'Amazon Web Services',
     shortName: 'AWS',
-    logoSrc: '/aws/aws-logo.webp',
+    logoSrc: '/aws/Amazon_Web_Services_Logo.svg.webp',
+    invertLogo: false,
     certifications: [
       {
         id: 'aif-c01',
@@ -51,46 +29,11 @@ const PROVIDERS_DATA = [
         statusType: 'success',
         active: true,
         url: '/aws/ai-practitioner/',
+        badgeImg: '/aws/ai-practitioner.png',
         domainsCount: 5,
         examsCount: 6,
         flashcardsCount: 127,
-        desc: 'Inteligencia Artificial, Machine Learning, Foundation Models, Bedrock, SageMaker y principios de IA Responsable.',
-        badgeColor: '#1d2a3a',
-        badgeAccent: '#ff9900'
-      },
-      {
-        id: 'saa-c03',
-        code: 'SAA-C03',
-        title: 'Solutions Architect',
-        fullName: 'AWS Certified Solutions Architect Associate',
-        level: 'ASSOCIATE',
-        status: 'EN DESARROLLO',
-        statusType: 'in-progress',
-        active: false,
-        url: '#',
-        domainsCount: 4,
-        examsCount: 6,
-        flashcardsCount: 180,
-        desc: 'Diseño de arquitecturas resilientes, seguras, de alto rendimiento y optimizadas en costes en AWS.',
-        badgeColor: '#1d2a3a',
-        badgeAccent: '#539fe5'
-      },
-      {
-        id: 'dva-c02',
-        code: 'DVA-C02',
-        title: 'Developer',
-        fullName: 'AWS Certified Developer Associate',
-        level: 'ASSOCIATE',
-        status: 'PLANIFICADO',
-        statusType: 'stopped',
-        active: false,
-        url: '#',
-        domainsCount: 4,
-        examsCount: 5,
-        flashcardsCount: 140,
-        desc: 'Desarrollo y despliegue de aplicaciones nativas en la nube, serverless (Lambda, API Gateway) y CI/CD.',
-        badgeColor: '#1d2a3a',
-        badgeAccent: '#539fe5'
+        desc: 'Fundamentos de IA y ML, IA Generativa, aplicaciones con Foundation Models (Bedrock), IA Responsable y Seguridad en AWS.'
       },
       {
         id: 'clf-c02',
@@ -102,12 +45,171 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
+        badgeImg: '/aws/cloud-practitioner.png',
         domainsCount: 4,
         examsCount: 6,
         flashcardsCount: 150,
-        desc: 'Visión general de la infraestructura global de AWS, servicios core, seguridad compartida y modelos de precios.',
-        badgeColor: '#1d2a3a',
-        badgeAccent: '#ff9900'
+        desc: 'Visión general de la nube de AWS, servicios principales, seguridad compartida, facturación y modelos de precios.'
+      },
+      {
+        id: 'ai-business',
+        code: 'AIB-C01',
+        title: 'AI Business Strategist',
+        fullName: 'AWS Certified AI Business Strategist',
+        level: 'FOUNDATIONAL',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/ai-business-strategist.png',
+        domainsCount: 4,
+        examsCount: 5,
+        flashcardsCount: 130,
+        desc: 'Estrategia de adopción de IA empresarial, casos de uso de negocio y retorno de inversión en tecnologías de IA.'
+      },
+      {
+        id: 'saa-c03',
+        code: 'SAA-C03',
+        title: 'Solutions Architect',
+        fullName: 'AWS Certified Solutions Architect Associate',
+        level: 'ASSOCIATE',
+        status: 'EN DESARROLLO',
+        statusType: 'in-progress',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/solutions-architect.png',
+        domainsCount: 4,
+        examsCount: 6,
+        flashcardsCount: 180,
+        desc: 'Diseño de arquitecturas resilientes, de alto rendimiento, seguras y optimizadas en costes en la nube de Amazon.'
+      },
+      {
+        id: 'dva-c02',
+        code: 'DVA-C02',
+        title: 'Developer Associate',
+        fullName: 'AWS Certified Developer Associate',
+        level: 'ASSOCIATE',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/developer.png',
+        domainsCount: 4,
+        examsCount: 5,
+        flashcardsCount: 140,
+        desc: 'Desarrollo, pruebas y despliegue de aplicaciones nativas en la nube utilizando servicios serverless de AWS.'
+      },
+      {
+        id: 'data-engineer',
+        code: 'DEA-C01',
+        title: 'Data Engineer Associate',
+        fullName: 'AWS Certified Data Engineer Associate',
+        level: 'ASSOCIATE',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/data-engineer.png',
+        domainsCount: 4,
+        examsCount: 6,
+        flashcardsCount: 160,
+        desc: 'Ingesta, transformación, pipelines de datos y almacenamiento analítico escalable con Glue, EMR, Redshift y Athena.'
+      },
+      {
+        id: 'mle-c01',
+        code: 'MLE-C01',
+        title: 'Machine Learning Engineer',
+        fullName: 'AWS Certified Machine Learning Engineer Associate',
+        level: 'ASSOCIATE',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/machine-learning-engineer.png',
+        domainsCount: 4,
+        examsCount: 5,
+        flashcardsCount: 150,
+        desc: 'Puesta en producción de modelos de ML, pipelines de MLOps con SageMaker y monitorización continua.'
+      },
+      {
+        id: 'genai-dev',
+        code: 'AIF-DEV',
+        title: 'Generative AI Developer',
+        fullName: 'AWS Certified Generative AI Developer',
+        level: 'ASSOCIATE',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/generative-ai-developer.png',
+        domainsCount: 4,
+        examsCount: 5,
+        flashcardsCount: 145,
+        desc: 'Construcción de aplicaciones GenAI avanzadas, embeddings, RAG, bases vectoriales y agentes autónomos.'
+      },
+      {
+        id: 'sap-c02',
+        code: 'SAP-C02',
+        title: 'Solutions Architect Professional',
+        fullName: 'AWS Certified Solutions Architect Professional',
+        level: 'PROFESSIONAL',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/solutions-architect-professional.png',
+        domainsCount: 4,
+        examsCount: 6,
+        flashcardsCount: 200,
+        desc: 'Estrategias complejas de arquitectura multi-cuenta, migraciones empresariales y optimización global avanzada.'
+      },
+      {
+        id: 'dop-c02',
+        code: 'DOP-C02',
+        title: 'DevOps Engineer Professional',
+        fullName: 'AWS Certified DevOps Engineer Professional',
+        level: 'PROFESSIONAL',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/devops-engineer.png',
+        domainsCount: 6,
+        examsCount: 6,
+        flashcardsCount: 190,
+        desc: 'Aprovisionamiento continuo, automatización con IaC, observabilidad y resiliencia en sistemas distribuidos.'
+      },
+      {
+        id: 'ans-c01',
+        code: 'ANS-C01',
+        title: 'Advanced Networking Specialty',
+        fullName: 'AWS Certified Advanced Networking Specialty',
+        level: 'SPECIALTY',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/advanced-networking.png',
+        domainsCount: 4,
+        examsCount: 5,
+        flashcardsCount: 160,
+        desc: 'Diseño e implementación de arquitecturas de red complejas, Direct Connect, Transit Gateway e híbridos.'
+      },
+      {
+        id: 'scs-c02',
+        code: 'SCS-C02',
+        title: 'Security Specialty',
+        fullName: 'AWS Certified Security Specialty',
+        level: 'SPECIALTY',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/aws/security.png',
+        domainsCount: 5,
+        examsCount: 6,
+        flashcardsCount: 170,
+        desc: 'Protección integral de infraestructuras, gestión de claves KMS, detección de amenazas con GuardDuty e IAM avanzado.'
       }
     ]
   },
@@ -116,6 +218,7 @@ const PROVIDERS_DATA = [
     name: 'Microsoft Azure',
     shortName: 'Microsoft Azure',
     logoSrc: '/azure/azure.png',
+    invertLogo: false,
     certifications: [
       {
         id: 'az-900',
@@ -130,9 +233,7 @@ const PROVIDERS_DATA = [
         domainsCount: 3,
         examsCount: 4,
         flashcardsCount: 120,
-        desc: 'Conceptos de nube, servicios de computación, red, almacenamiento, seguridad y gestión de costes en Azure.',
-        badgeColor: '#16283d',
-        badgeAccent: '#0089d6'
+        desc: 'Conceptos de nube, servicios de computación, red, almacenamiento, seguridad y gestión de costes en Azure.'
       },
       {
         id: 'ai-900',
@@ -147,9 +248,7 @@ const PROVIDERS_DATA = [
         domainsCount: 5,
         examsCount: 4,
         flashcardsCount: 110,
-        desc: 'Principios de IA, Computer Vision, Procesamiento de Lenguaje Natural (NLP) y Azure OpenAI Services.',
-        badgeColor: '#16283d',
-        badgeAccent: '#0089d6'
+        desc: 'Principios de IA, Computer Vision, Procesamiento de Lenguaje Natural (NLP) y Azure OpenAI Services.'
       },
       {
         id: 'az-104',
@@ -164,9 +263,7 @@ const PROVIDERS_DATA = [
         domainsCount: 5,
         examsCount: 6,
         flashcardsCount: 190,
-        desc: 'Implementación, administración y monitorización de identidades, gobierno, almacenamiento y redes virtuales.',
-        badgeColor: '#16283d',
-        badgeAccent: '#0089d6'
+        desc: 'Implementación, administración y monitorización de identidades, gobierno, almacenamiento y redes virtuales.'
       }
     ]
   },
@@ -175,6 +272,7 @@ const PROVIDERS_DATA = [
     name: 'Google Cloud',
     shortName: 'Google Cloud',
     logoSrc: '/gcp/Google_Cloud_icon_(2026).svg.webp',
+    invertLogo: false,
     certifications: [
       {
         id: 'gcp-cdl',
@@ -189,9 +287,7 @@ const PROVIDERS_DATA = [
         domainsCount: 4,
         examsCount: 4,
         flashcardsCount: 110,
-        desc: 'Transformación digital, conceptos clave de Google Cloud y cómo los productos impulsan organizaciones.',
-        badgeColor: '#17273d',
-        badgeAccent: '#4285f4'
+        desc: 'Transformación digital, conceptos clave de Google Cloud y cómo los productos impulsan organizaciones.'
       },
       {
         id: 'gcp-ace',
@@ -206,9 +302,7 @@ const PROVIDERS_DATA = [
         domainsCount: 5,
         examsCount: 5,
         flashcardsCount: 150,
-        desc: 'Despliegue y monitorización de aplicaciones, gestión de Kubernetes (GKE), Cloud Run y configuración de IAM.',
-        badgeColor: '#17273d',
-        badgeAccent: '#4285f4'
+        desc: 'Despliegue y monitorización de aplicaciones, gestión de Kubernetes (GKE), Cloud Run y configuración de IAM.'
       }
     ]
   },
@@ -217,6 +311,7 @@ const PROVIDERS_DATA = [
     name: 'HashiCorp',
     shortName: 'HashiCorp',
     logoSrc: '/hashicorp/HashiCorp_Logo_no_text.png',
+    invertLogo: true, // Invertir color para que quede en blanco puro
     certifications: [
       {
         id: 'terraform-003',
@@ -228,29 +323,27 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
+        badgeImg: '/hashicorp/terraform-associate.png',
         domainsCount: 9,
         examsCount: 6,
         flashcardsCount: 160,
-        desc: 'Conceptos de IaC, sintaxis HCL, estado de Terraform, módulos, variables y flujos de trabajo profesionales.',
-        badgeColor: '#1e1c33',
-        badgeAccent: '#844fba'
+        desc: 'Conceptos de IaC, sintaxis HCL, estado de Terraform, módulos, variables y flujos de trabajo profesionales.'
       },
       {
-        id: 'vault-associate',
-        code: 'VA-002',
-        title: 'Vault Associate',
-        fullName: 'HashiCorp Certified: Vault Associate',
-        level: 'ASSOCIATE',
+        id: 'terraform-advanced',
+        code: 'TA-ADV',
+        title: 'Authoring & Operations',
+        fullName: 'HashiCorp Certified: Authoring & Operations Advanced',
+        level: 'ADVANCED',
         status: 'PLANIFICADO',
         statusType: 'stopped',
         active: false,
         url: '#',
-        domainsCount: 7,
-        examsCount: 4,
-        flashcardsCount: 130,
-        desc: 'Gestión centralizada de secretos, cifrado como servicio, autenticación y políticas de acceso con Vault.',
-        badgeColor: '#1e1c33',
-        badgeAccent: '#844fba'
+        badgeImg: '/hashicorp/authoring-operations-advanced.png',
+        domainsCount: 6,
+        examsCount: 5,
+        flashcardsCount: 140,
+        desc: 'Estructuración modular compleja, testing de código de infraestructura y CI/CD avanzado con Terraform.'
       }
     ]
   },
@@ -259,6 +352,7 @@ const PROVIDERS_DATA = [
     name: 'GitHub',
     shortName: 'GitHub',
     logoSrc: '/github/25231.png',
+    invertLogo: true, // Invertir color para que quede en blanco puro
     certifications: [
       {
         id: 'gh-actions',
@@ -270,12 +364,11 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
+        badgeImg: '/github/actions.png',
         domainsCount: 5,
         examsCount: 5,
         flashcardsCount: 140,
-        desc: 'Automatización de flujos de trabajo CI/CD, creación de custom actions, runners autogestionados y seguridad.',
-        badgeColor: '#1c2128',
-        badgeAccent: '#f0f6fc'
+        desc: 'Automatización de flujos de trabajo CI/CD, creación de custom actions, runners autogestionados y seguridad.'
       },
       {
         id: 'gh-foundations',
@@ -287,12 +380,59 @@ const PROVIDERS_DATA = [
         statusType: 'stopped',
         active: false,
         url: '#',
+        badgeImg: '/github/foundations.png',
         domainsCount: 4,
         examsCount: 4,
         flashcardsCount: 120,
-        desc: 'Control de versiones con Git, colaboración con Issues y Pull Requests, Markdown y gestión de proyectos.',
-        badgeColor: '#1c2128',
-        badgeAccent: '#f0f6fc'
+        desc: 'Control de versiones con Git, colaboración con Issues y Pull Requests, Markdown y gestión de proyectos.'
+      },
+      {
+        id: 'gh-security',
+        code: 'GH-SEC',
+        title: 'Advanced Security',
+        fullName: 'GitHub Advanced Security Certification',
+        level: 'SPECIALTY',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/github/advanced-security.png',
+        domainsCount: 5,
+        examsCount: 5,
+        flashcardsCount: 135,
+        desc: 'Code scanning con CodeQL, secret scanning, gestión de vulnerabilidades con Dependabot y seguridad en la cadena de suministro.'
+      },
+      {
+        id: 'gh-copilot',
+        code: 'GH-COP',
+        title: 'GitHub Copilot',
+        fullName: 'GitHub Copilot Certification',
+        level: 'SPECIALTY',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/github/copilot.png',
+        domainsCount: 4,
+        examsCount: 4,
+        flashcardsCount: 110,
+        desc: 'Asistencia con IA en el ciclo de vida del desarrollo, prompt engineering para código y mejores prácticas de productividad.'
+      },
+      {
+        id: 'gh-admin',
+        code: 'GH-ADM',
+        title: 'GitHub Administration',
+        fullName: 'GitHub Administration Certification',
+        level: 'SPECIALTY',
+        status: 'PLANIFICADO',
+        statusType: 'stopped',
+        active: false,
+        url: '#',
+        badgeImg: '/github/admin.png',
+        domainsCount: 5,
+        examsCount: 5,
+        flashcardsCount: 130,
+        desc: 'Gestión de organizaciones empresariales, políticas de acceso SAML/SSO, auditoría y gobierno en GitHub Enterprise.'
       }
     ]
   }
@@ -314,11 +454,11 @@ export default function App() {
   return (
     <div className="awsui-dark-mode certhub-root-layout">
       
-      {/* ── 1. UNIFIED SINGLE TOP BAR (BRANDING LEFT | TABS CENTER | SEARCH RIGHT) ── */}
+      {/* ── 1. UNIFIED SINGLE TOP BAR (BIGGER LOGO LEFT | TABS CENTER | SEARCH RIGHT) ── */}
       <header className="certhub-unified-header">
         <div className="header-unified-inner">
           
-          {/* LEFT: CERTHUB LOGO & TAGLINE */}
+          {/* LEFT: CERTHUB LOGO (BIGGER & FULL LEFT) + TAGLINE */}
           <div className="header-brand-box">
             <img src="/logo.svg" alt="CertHub Logo" className="header-brand-logo" />
             <div className="header-brand-texts">
@@ -339,7 +479,11 @@ export default function App() {
                   title={p.name}
                 >
                   <div className="pill-icon-wrapper">
-                    <img src={p.logoSrc} alt={p.name} className="provider-img-fluid" />
+                    <img 
+                      src={p.logoSrc} 
+                      alt={p.name} 
+                      className={`provider-img-fluid ${p.invertLogo ? 'invert-white' : ''}`} 
+                    />
                   </div>
                   <span className="pill-label-text">{p.name}</span>
                 </button>
@@ -370,7 +514,11 @@ export default function App() {
               <div className="provider-view-header">
                 <div className="provider-header-left">
                   <div className="provider-header-img-box">
-                    <img src={currentProvider.logoSrc} alt={currentProvider.name} className="provider-img-fluid" />
+                    <img 
+                      src={currentProvider.logoSrc} 
+                      alt={currentProvider.name} 
+                      className={`provider-img-fluid ${currentProvider.invertLogo ? 'invert-white' : ''}`} 
+                    />
                   </div>
                   <h2 className="provider-view-title">{currentProvider.name}</h2>
                 </div>
@@ -383,14 +531,16 @@ export default function App() {
                 {filteredCerts.map(cert => (
                   <div key={cert.id} className={`cert-badge-card ${cert.active ? 'active' : 'disabled'}`}>
                     
-                    {/* HEXAGON BADGE VISUAL */}
+                    {/* BADGE VISUAL (OFFICIAL PNG BADGE IF PRESENT) */}
                     <div className="badge-visual-wrapper">
-                      <HexBadge
-                        title={cert.title}
-                        level={cert.level}
-                        color={cert.badgeColor}
-                        accent={cert.badgeAccent}
-                      />
+                      {cert.badgeImg ? (
+                        <img src={cert.badgeImg} alt={cert.title} className="badge-official-png" />
+                      ) : (
+                        <div className="badge-placeholder-box">
+                          <span className="badge-placeholder-code">{cert.code}</span>
+                          <span className="badge-placeholder-level">{cert.level}</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* CERT DETAILS */}

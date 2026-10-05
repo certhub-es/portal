@@ -43,7 +43,7 @@ body {
   flex-direction: column;
 }
 
-/* ── 1. UNIFIED SINGLE FIXED HEADER (FULL WIDTH TO EDGES) ── */
+/* ── 1. UNIFIED SINGLE FIXED HEADER ── */
 .certhub-unified-header {
   background: #16253b;
   border-bottom: 1px solid #2b4162;
@@ -62,17 +62,17 @@ body {
   gap: 16px;
 }
 
-/* LEFT: LOGO A LA IZQUIERDA DEL TODO + TEXTO PEGADO */
+/* LEFT: LOGO BIGGER (54px) & ATTACHED TEXT */
 .header-brand-box {
   display: flex;
   align-items: center;
-  gap: 8px; /* Texto bien pegado al logo */
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .header-brand-logo {
-  width: 48px;  /* Logo visiblemente más grande */
-  height: 48px;
+  width: 54px;  /* Aún más grande */
+  height: 54px;
   object-fit: contain;
 }
 
@@ -84,7 +84,7 @@ body {
 
 .header-brand-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: #fbfbfb;
   line-height: 1.1;
@@ -92,19 +92,19 @@ body {
 }
 
 .header-brand-tagline {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   color: #9ba7b6;
   font-weight: 500;
   white-space: nowrap;
 }
 
-/* CENTER: PROVIDER TABS SIN SCROLL LATERAL */
+/* CENTER: PROVIDER TABS */
 .header-provider-tabs {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: nowrap;
-  overflow: visible; /* Elimina la barra de scroll */
+  overflow: visible;
   justify-content: center;
   flex: 1;
 }
@@ -140,8 +140,8 @@ body {
 }
 
 .pill-icon-wrapper {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,6 +152,11 @@ body {
   max-height: 100%;
   object-fit: contain;
   display: block;
+}
+
+/* Inversión de color para HashiCorp y GitHub a blanco */
+.invert-white {
+  filter: brightness(0) invert(1);
 }
 
 .pill-label-text {
@@ -192,8 +197,8 @@ body {
 }
 
 .provider-header-img-box {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   background: #111d2d;
   border: 1px solid #2b4162;
   border-radius: 6px;
@@ -248,93 +253,39 @@ body {
   justify-content: center;
 }
 
-/* ── HEXAGON BADGE ── */
-.hex-badge-container {
-  width: 100px;
-  height: 115px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+.badge-official-png {
+  max-width: 105px;
+  max-height: 115px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
 }
 
-.hex-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hex-border {
-  fill: #788896;
-}
-
-.hex-inner {
-  fill: var(--badge-bg, #232f3e);
-}
-
-.hex-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: #ffffff;
-  padding: 0 6px;
+.badge-placeholder-box {
+  width: 95px;
+  height: 105px;
+  background: #16253b;
+  border: 1px dashed #415b7d;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 84px;
+  gap: 4px;
+  text-align: center;
+  padding: 6px;
 }
 
-.hex-header-brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  font-size: 9px;
-  font-weight: 800;
-  text-transform: uppercase;
+.badge-placeholder-code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #539fe5;
 }
 
-.hex-brand-text {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 900;
-  color: #fff;
-}
-
-.hex-check {
-  color: var(--badge-accent, #ff9900);
-  font-size: 8px;
-}
-
-.hex-certified {
-  font-size: 7px;
-  color: #d1dbe5;
-}
-
-.hex-divider {
-  width: 80%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.35);
-  margin: 3px 0;
-}
-
-.hex-main-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1.15;
-  color: #ffffff;
-  padding: 2px 0;
-}
-
-.hex-footer-level {
-  font-size: 7px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  color: #d1dbe5;
+.badge-placeholder-level {
+  font-size: 0.65rem;
+  color: #9ba7b6;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
