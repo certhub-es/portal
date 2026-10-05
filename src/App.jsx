@@ -147,6 +147,7 @@ const PROVIDERS_DATA = [
     logoSrc: '/azure/azure.png',
     invertLogo: false,
     certifications: [
+      // Fundamentals (3)
       {
         id: 'az-900',
         code: 'AZ-900',
@@ -154,7 +155,8 @@ const PROVIDERS_DATA = [
         fullName: 'Microsoft Certified: Azure Fundamentals',
         active: false,
         url: '#',
-        desc: 'Conceptos de nube, servicios de computación, red, almacenamiento, seguridad y gestión de costes en Azure.'
+        badgeImg: '/azure/microsoft-certified-fundamentals-badge.svg',
+        desc: 'Conceptos fundamentales de la nube, arquitectura y servicios de Azure, seguridad, privacidad, cumplimiento y gestión de costes.'
       },
       {
         id: 'ai-900',
@@ -163,16 +165,154 @@ const PROVIDERS_DATA = [
         fullName: 'Microsoft Certified: Azure AI Fundamentals',
         active: false,
         url: '#',
-        desc: 'Principios de IA, Computer Vision, Procesamiento de Lenguaje Natural (NLP) y Azure OpenAI Services.'
+        badgeImg: '/azure/microsoft-certified-fundamentals-badge.svg',
+        desc: 'Principios de Inteligencia Artificial, Machine Learning, Computer Vision, Procesamiento de Lenguaje Natural (NLP) e IA Generativa con Azure OpenAI.'
       },
+      {
+        id: 'dp-900',
+        code: 'DP-900',
+        title: 'Azure Data Fundamentals',
+        fullName: 'Microsoft Certified: Azure Data Fundamentals',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-fundamentals-badge.svg',
+        desc: 'Conceptos clave de datos relacionales y no relacionales, cargas de trabajo de análisis y servicios de datos modernos en Azure.'
+      },
+
+      // Associate (9)
       {
         id: 'az-104',
         code: 'AZ-104',
-        title: 'Azure Administrator',
+        title: 'Azure Administrator Associate',
         fullName: 'Microsoft Certified: Azure Administrator Associate',
         active: false,
         url: '#',
-        desc: 'Implementación, administración y monitorización de identidades, gobierno, almacenamiento y redes virtuales.'
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Implementación, administración y monitorización de identidades, gobierno, almacenamiento, computación y redes virtuales en Azure.'
+      },
+      {
+        id: 'az-204',
+        code: 'AZ-204',
+        title: 'Azure Developer Associate',
+        fullName: 'Microsoft Certified: Azure Developer Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Desarrollo de soluciones cloud con Azure Compute, Functions, App Services, almacenamiento Cosmos DB, seguridad e integración de eventos.'
+      },
+      {
+        id: 'az-500',
+        code: 'AZ-500',
+        title: 'Azure Security Engineer Associate',
+        fullName: 'Microsoft Certified: Azure Security Engineer Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Implementación de controles de seguridad, gestión de posturas de seguridad (Defender for Cloud), protección de identidad, acceso y datos en Azure.'
+      },
+      {
+        id: 'az-700',
+        code: 'AZ-700',
+        title: 'Azure Network Engineer Associate',
+        fullName: 'Microsoft Certified: Azure Network Engineer Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Planificación, implementación y mantenimiento de soluciones de red en Azure: VNets, Virtual WAN, ExpressRoute, VPNs y conectividad híbrida.'
+      },
+      {
+        id: 'ai-102',
+        code: 'AI-102',
+        title: 'Azure AI Engineer Associate',
+        fullName: 'Microsoft Certified: Azure AI Engineer Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Construcción y despliegue de soluciones de IA usando Azure AI Services, Azure OpenAI, búsqueda semántica (Azure AI Search) y agentes de IA.'
+      },
+      {
+        id: 'ai-200',
+        code: 'AI-200',
+        title: 'Azure AI Cloud Developer Associate',
+        fullName: 'Microsoft Certified: Azure AI Cloud Developer Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Diseño e integración de aplicaciones nativas impulsadas por IA, modelos generativos avanzados, RAG y orquestación con Azure AI SDKs.'
+      },
+      {
+        id: 'dp-203',
+        code: 'DP-203',
+        title: 'Azure Data Engineer Associate',
+        fullName: 'Microsoft Certified: Azure Data Engineer Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Diseño e implementación de procesamiento y almacenamiento de datos analíticos con Azure Synapse Analytics, Databricks, Data Factory y Data Lake.'
+      },
+      {
+        id: 'dp-100',
+        code: 'DP-100',
+        title: 'Azure Data Scientist Associate',
+        fullName: 'Microsoft Certified: Azure Data Scientist Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Diseño y preparación de entornos de Machine Learning, experimentación, entrenamiento, optimización y despliegue de modelos con Azure Machine Learning.'
+      },
+      {
+        id: 'dp-300',
+        code: 'DP-300',
+        title: 'Azure Database Administrator Associate',
+        fullName: 'Microsoft Certified: Azure Database Administrator Associate',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-associate-badge.svg',
+        desc: 'Gestión, monitorización de rendimiento, alta disponibilidad y seguridad de bases de datos relacionales operacionales con SQL Server y Azure SQL.'
+      },
+
+      // Expert (2)
+      {
+        id: 'az-305',
+        code: 'AZ-305',
+        title: 'Azure Solutions Architect Expert',
+        fullName: 'Microsoft Certified: Azure Solutions Architect Expert',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-expert-badge.svg',
+        desc: 'Diseño de soluciones cloud empresariales de infraestructura, gobernanza, resiliencia, migración, continuidad de negocio y arquitecturas seguras.'
+      },
+      {
+        id: 'az-400',
+        code: 'AZ-400',
+        title: 'DevOps Engineer Expert',
+        fullName: 'Microsoft Certified: DevOps Engineer Expert',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-expert-badge.svg',
+        desc: 'Estrategias de CI/CD, gestión de código y dependencias, integración continua, testing, automatización de infraestructura y observabilidad con Azure DevOps y GitHub.'
+      },
+
+      // Specialty (2)
+      {
+        id: 'az-120',
+        code: 'AZ-120',
+        title: 'Azure for SAP Workloads Specialty',
+        fullName: 'Microsoft Certified: Azure for SAP Workloads Specialty',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-specialty-badge.svg',
+        desc: 'Planificación, migración e implementación de soluciones y cargas de trabajo críticas de SAP HANA y NetWeaver en la infraestructura de Azure.'
+      },
+      {
+        id: 'dp-420',
+        code: 'DP-420',
+        title: 'Azure Cosmos DB Developer Specialty',
+        fullName: 'Microsoft Certified: Azure Cosmos DB Developer Specialty',
+        active: false,
+        url: '#',
+        badgeImg: '/azure/microsoft-certified-specialty-badge.svg',
+        desc: 'Diseño y desarrollo de aplicaciones cloud distribuidas a escala global usando Azure Cosmos DB, modelos de datos NoSQL, particionado y optimización de RU/s.'
       }
     ]
   },
