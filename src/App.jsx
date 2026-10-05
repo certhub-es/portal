@@ -35,13 +35,13 @@ function HexBadge({ title, level, category = 'FOUNDATIONAL', color = '#232f3e', 
   );
 }
 
-// ── CERTIFICATIONS BY PROVIDER (USING USER IMAGES) ──
+// ── CERTIFICATIONS DATA (CLEANED PATHS) ──
 const PROVIDERS_DATA = [
   {
     id: 'aws',
     name: 'Amazon Web Services',
     shortName: 'AWS',
-    logoSrc: '/aws/Amazon_Web_Services_Logo.svg.webp',
+    logoSrc: '/aws/aws-logo.webp',
     certifications: [
       {
         id: 'aif-c01',
@@ -302,218 +302,165 @@ const PROVIDERS_DATA = [
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedSections, setExpandedSections] = useState({
-    aws: true,
-    azure: false,
-    gcp: false,
-    hashicorp: false,
-    github: false
-  });
+  const [selectedProviderId, setSelectedProviderId] = useState('aws');
 
-  const toggleSection = (id) => {
-    setExpandedSections(prev => ({ ...prev, [id]: !prev[id] }));
-  };
+  const currentProvider = PROVIDERS_DATA.find(p => p.id === selectedProviderId) || PROVIDERS_DATA[0];
 
-  const selectProviderTab = (id) => {
-    setExpandedSections(prev => ({ ...prev, [id]: true }));
-    const el = document.getElementById(`provider-section-${id}`);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
+  const filteredCerts = currentProvider.certifications.filter(c => 
+    searchQuery === '' ||
+    c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.fullName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="awsui-dark-mode certhub-root-layout">
       
-      {/* ── 1. TOP NAVIGATION (CLOUDSCAPE WITH LOGO.SVG) ── */}
-      <TopNavigation
-        identity={{
-          href: '/',
-          title: 'CertHub',
-          logo: {
-            src: '/logo.svg',
-            alt: 'CertHub Logo'
-          }
-        }}
-        utilities={[
-          {
-            type: 'button',
-            text: 'Campus AI Practitioner',
-            iconName: 'external',
-            href: '/aws/ai-practitioner/'
-          },
-          {
-            type: 'button',
-            text: 'LinkedIn',
-            iconName: 'share',
-            href: 'https://www.linkedin.com/in/danielibabet',
-            external: true
-          }
-        ]}
-      />
+      {/* ── 1. COMPACT FIXED HEADER BAR ── */}
+      <header className="certhub-compact-header">
+        <div className="header-content-inner">
+          <div className="header-branding">
+            <img src="/logo.svg" alt="CertHub Logo" className="header-logo-svg" />
+            <div className="header-titles">
+              <h1 className="header-main-title">CertHub</h1>
+              <span className="header-sub-tagline">Plataforma de estudio de certificaciones oficiales</span>
+            </div>
+          </div>
 
-      {/* ── 2. HERO / SEARCH BAR ── */}
-      <div className="certhub-hero-section">
-        <div className="certhub-hero-inner">
-          <h1 className="hero-main-title">
-            Plataforma de Certificaciones <span>CertHub</span>
-          </h1>
-          <p className="hero-subtitle">
-            Selecciona una familia tecnológica para desplegar sus certificaciones oficiales, temarios interactivos y simulacros de examen.
-          </p>
-
-          <div className="hero-search-wrapper">
+          <div className="header-search-bar">
             <Input
               type="search"
-              placeholder="Buscar certificación o tecnología (AI Practitioner, SAA-C03, Terraform, Azure...)"
+              placeholder="Buscar certificación o examen (AI Practitioner, SAA-C03...)"
               value={searchQuery}
               onChange={({ detail }) => setSearchQuery(detail.value)}
-              clearAriaLabel="Limpiar búsqueda"
+              clearAriaLabel="Limpiar"
             />
           </div>
-        </div>
-      </div>
 
-      {/* ── 3. PROVIDER SELECTION BAR (ICON + TITLE ONLY) ── */}
+          <div className="header-quick-actions">
+            <Button
+              variant="primary"
+              iconName="external"
+              href="/aws/ai-practitioner/"
+            >
+              Campus AI Practitioner
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* ── 2. SINGLE SELECTOR TABS BAR (ICON + TITLE ONLY) ── */}
       <div className="provider-tabs-bar-container">
         <div className="provider-tabs-wrapper">
-          {PROVIDERS_DATA.map(p => (
-            <button
-              key={p.id}
-              className={`provider-tab-card ${expandedSections[p.id] ? 'active' : ''}`}
-              onClick={() => selectProviderTab(p.id)}
-            >
-              <div className="tab-logo-img-wrapper">
-                <img src={p.logoSrc} alt={p.name} className="provider-img-fluid" />
-              </div>
-              <span className="tab-title-text">{p.name}</span>
-            </button>
-          ))}
+          {PROVIDERS_DATA.map(p => {
+            const isSelected = selectedProviderId === p.id;
+            return (
+              <button
+                key={p.id}
+                className={`provider-tab-card ${isSelected ? 'active' : ''}`}
+                onClick={() => setSelectedProviderId(p.id)}
+              >
+                <div className="tab-logo-img-wrapper">
+                  <img src={p.logoSrc} alt={p.name} className="provider-img-fluid" />
+                </div>
+                <span className="tab-title-text">{p.name}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* ── 4. ACCORDIONS LIST (ICON + TITLE ONLY IN HEADER) ── */}
-      <div className="main-providers-content-area">
+      {/* ── 3. DYNAMIC CONTENT BODY (UPDATES ACCORDING TO SELECTED TAB) ── */}
+      <main className="main-providers-content-area">
         <div className="content-max-width">
           
-          <SpaceBetween size="l">
-            {PROVIDERS_DATA.map(provider => {
-              const matchesSearch = searchQuery === '' || 
-                provider.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                provider.certifications.some(c => 
-                  c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  c.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                  c.fullName.toLowerCase().includes(searchQuery.toLowerCase())
-                );
-
-              if (!matchesSearch) return null;
-
-              const filteredCerts = provider.certifications.filter(c => 
-                searchQuery === '' ||
-                c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                c.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                c.fullName.toLowerCase().includes(searchQuery.toLowerCase())
-              );
-
-              return (
-                <div key={provider.id} id={`provider-section-${provider.id}`} className="provider-expandable-card">
-                  <Container
-                    header={
-                      <div 
-                        className="provider-accordion-header"
-                        onClick={() => toggleSection(provider.id)}
-                      >
-                        {/* LEFT: ONLY ICON AND TITLE */}
-                        <div className="accordion-left-side">
-                          <div className="provider-header-img-box">
-                            <img src={provider.logoSrc} alt={provider.name} className="provider-img-fluid" />
-                          </div>
-                          <span className="provider-accordion-title-clean">
-                            {provider.name}
-                          </span>
-                        </div>
-
-                        {/* RIGHT: COUNT AND CHEVRON */}
-                        <div className="accordion-right-side">
-                          <Badge color="blue">{filteredCerts.length} Certificaciones</Badge>
-                          <div className={`accordion-chevron-icon ${expandedSections[provider.id] ? 'expanded' : ''}`}>
-                            ▼
-                          </div>
-                        </div>
-                      </div>
-                    }
-                  >
-                    {expandedSections[provider.id] && (
-                      <div className="badges-grid-container">
-                        {filteredCerts.map(cert => (
-                          <div key={cert.id} className={`cert-badge-card ${cert.active ? 'active' : 'disabled'}`}>
-                            
-                            {/* HEXAGON BADGE VISUAL */}
-                            <div className="badge-visual-wrapper">
-                              <HexBadge
-                                title={cert.title}
-                                level={cert.level}
-                                color={cert.badgeColor}
-                                accent={cert.badgeAccent}
-                              />
-                            </div>
-
-                            {/* CERT DETAILS */}
-                            <div className="badge-details-wrapper">
-                              <div className="badge-code-row">
-                                <span className="badge-exam-code">{cert.code}</span>
-                                <StatusIndicator type={cert.statusType}>{cert.status}</StatusIndicator>
-                              </div>
-
-                              <h3 className="badge-full-title">{cert.fullName}</h3>
-                              <p className="badge-summary-text">{cert.desc}</p>
-
-                              <div className="badge-meta-pills">
-                                <span>📚 {cert.domainsCount} Dominios</span>
-                                <span>📝 {cert.examsCount} Exámenes</span>
-                                <span>⚡ {cert.flashcardsCount} Flashcards</span>
-                              </div>
-
-                              <div className="badge-action-row">
-                                {cert.active ? (
-                                  <Button 
-                                    variant="primary" 
-                                    iconName="external" 
-                                    iconAlign="right"
-                                    href={cert.url}
-                                    fullWidth
-                                  >
-                                    Entrar al Campus
-                                  </Button>
-                                ) : (
-                                  <Button disabled fullWidth>
-                                    En Desarrollo
-                                  </Button>
-                                )}
-                              </div>
-                            </div>
-
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </Container>
+          <Container
+            header={
+              <div className="provider-view-header">
+                <div className="provider-header-left">
+                  <div className="provider-header-img-box">
+                    <img src={currentProvider.logoSrc} alt={currentProvider.name} className="provider-img-fluid" />
+                  </div>
+                  <h2 className="provider-view-title">{currentProvider.name}</h2>
                 </div>
-              );
-            })}
-          </SpaceBetween>
+                <Badge color="blue">{filteredCerts.length} Certificaciones</Badge>
+              </div>
+            }
+          >
+            {filteredCerts.length > 0 ? (
+              <div className="badges-grid-container">
+                {filteredCerts.map(cert => (
+                  <div key={cert.id} className={`cert-badge-card ${cert.active ? 'active' : 'disabled'}`}>
+                    
+                    {/* HEXAGON BADGE VISUAL */}
+                    <div className="badge-visual-wrapper">
+                      <HexBadge
+                        title={cert.title}
+                        level={cert.level}
+                        color={cert.badgeColor}
+                        accent={cert.badgeAccent}
+                      />
+                    </div>
+
+                    {/* CERT DETAILS */}
+                    <div className="badge-details-wrapper">
+                      <div className="badge-code-row">
+                        <span className="badge-exam-code">{cert.code}</span>
+                        <StatusIndicator type={cert.statusType}>{cert.status}</StatusIndicator>
+                      </div>
+
+                      <h3 className="badge-full-title">{cert.fullName}</h3>
+                      <p className="badge-summary-text">{cert.desc}</p>
+
+                      <div className="badge-meta-pills">
+                        <span>📚 {cert.domainsCount} Dominios</span>
+                        <span>📝 {cert.examsCount} Exámenes</span>
+                        <span>⚡ {cert.flashcardsCount} Flashcards</span>
+                      </div>
+
+                      <div className="badge-action-row">
+                        {cert.active ? (
+                          <Button 
+                            variant="primary" 
+                            iconName="external" 
+                            iconAlign="right"
+                            href={cert.url}
+                            fullWidth
+                          >
+                            Entrar al Campus
+                          </Button>
+                        ) : (
+                          <Button disabled fullWidth>
+                            En Desarrollo
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="empty-search-box">
+                <p>No se encontraron certificaciones que coincidan con <strong>"{searchQuery}"</strong> en {currentProvider.name}.</p>
+                <Button onClick={() => setSearchQuery('')}>Limpiar Búsqueda</Button>
+              </div>
+            )}
+          </Container>
 
           {/* ── FOOTER BAR ── */}
-          <div className="certhub-portal-footer">
+          <footer className="certhub-portal-footer">
             <p>
               © 2026 <strong>CertHub</strong> — Creado por{' '}
               <Link external href="https://www.linkedin.com/in/danielibabet">
                 Daniel Ibáñez
               </Link>
-              . Todos los logos y marcas pertenecen a sus respectivos proveedores (AWS, Microsoft Azure, Google Cloud, HashiCorp, GitHub).
+              . Todos los logos pertenecen a sus respectivos proveedores (AWS, Microsoft Azure, Google Cloud, HashiCorp, GitHub).
             </p>
-          </div>
+          </footer>
 
         </div>
-      </div>
+      </main>
 
     </div>
   );

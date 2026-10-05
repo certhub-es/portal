@@ -43,56 +43,74 @@ body {
   flex-direction: column;
 }
 
-/* ── HERO SECTION ── */
-.certhub-hero-section {
-  background: linear-gradient(180deg, #16253b 0%, #0f1b2a 100%);
-  border-bottom: 1px solid #253b59;
-  padding: 40px 24px 32px;
-  text-align: center;
+/* ── 1. COMPACT FIXED HEADER ── */
+.certhub-compact-header {
+  background: #16253b;
+  border-bottom: 1px solid #2b4162;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px 24px;
 }
 
-.certhub-hero-inner {
-  max-width: 800px;
+.header-content-inner {
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.hero-main-title {
+.header-branding {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.header-logo-svg {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-main-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #fbfbfb;
-  line-height: 1.25;
-  margin-bottom: 10px;
-  letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
-.hero-main-title span {
-  background: linear-gradient(135deg, #539fe5 0%, #ff9900 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
+.header-sub-tagline {
+  font-size: 0.78rem;
   color: #9ba7b6;
-  max-width: 650px;
-  margin: 0 auto 24px;
-  line-height: 1.5;
+  font-weight: 500;
 }
 
-.hero-search-wrapper {
-  max-width: 540px;
-  margin: 0 auto;
+.header-search-bar {
+  flex: 1;
+  max-width: 480px;
 }
 
-/* ── PROVIDER BUTTONS BAR (ICON + TITLE ONLY) ── */
+.header-quick-actions {
+  flex-shrink: 0;
+}
+
+/* ── 2. SINGLE SELECTOR TABS BAR (STICKY) ── */
 .provider-tabs-bar-container {
   background: #111d2d;
   border-bottom: 1px solid #2b4162;
   position: sticky;
-  top: 56px;
+  top: 59px;
   z-index: 90;
-  padding: 12px 24px;
+  padding: 10px 24px;
 }
 
 .provider-tabs-wrapper {
@@ -101,18 +119,17 @@ body {
   display: flex;
   gap: 12px;
   overflow-x: auto;
-  padding-bottom: 4px;
   justify-content: center;
 }
 
 .provider-tab-card {
   background: #16253b;
   border: 1px solid #2b4162;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 8px 18px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: #d1dbe5;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -125,19 +142,19 @@ body {
   background: #233957;
   border-color: #539fe5;
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .provider-tab-card.active {
   background: #1d3b63;
   border-color: #539fe5;
   color: #fff;
-  box-shadow: 0 0 12px rgba(83, 159, 229, 0.35);
+  box-shadow: 0 0 10px rgba(83, 159, 229, 0.4);
 }
 
 .tab-logo-img-wrapper {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,14 +169,14 @@ body {
 
 .tab-title-text {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: #fbfbfb;
 }
 
-/* ── MAIN CONTENT ACCORDIONS (ICON + TITLE ONLY) ── */
+/* ── 3. DYNAMIC CONTENT AREA ── */
 .main-providers-content-area {
-  padding: 32px 24px 64px;
+  padding: 24px 24px 64px;
   flex: 1;
 }
 
@@ -168,61 +185,37 @@ body {
   margin: 0 auto;
 }
 
-.provider-expandable-card {
-  margin-bottom: 16px;
-  transition: all 0.2s ease;
-}
-
-.provider-accordion-header {
+.provider-view-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  cursor: pointer;
-  padding: 6px 0;
 }
 
-.accordion-left-side {
+.provider-header-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .provider-header-img-box {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   background: #111d2d;
   border: 1px solid #2b4162;
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 5px;
   flex-shrink: 0;
 }
 
-.provider-accordion-title-clean {
+.provider-view-title {
   font-family: 'Outfit', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #fbfbfb;
-  letter-spacing: -0.2px;
-}
-
-.accordion-right-side {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.accordion-chevron-icon {
-  font-size: 0.8rem;
-  color: #539fe5;
-  transition: transform 0.2s ease;
-}
-
-.accordion-chevron-icon.expanded {
-  transform: rotate(180deg);
 }
 
 /* ── BADGES GRID ── */
@@ -230,7 +223,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 20px;
-  padding-top: 16px;
+  padding-top: 10px;
 }
 
 .cert-badge-card {
@@ -239,7 +232,7 @@ body {
   border-radius: 8px;
   padding: 20px;
   display: flex;
-  gap: 20px;
+  gap: 18px;
   transition: all 0.2s ease;
   position: relative;
 }
@@ -407,12 +400,33 @@ body {
   margin-top: auto;
 }
 
+.empty-search-box {
+  padding: 36px 20px;
+  text-align: center;
+  color: #9ba7b6;
+}
+
+.empty-search-box p {
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
 /* ── FOOTER ── */
 .certhub-portal-footer {
-  margin-top: 48px;
+  margin-top: 36px;
   text-align: center;
   font-size: 0.82rem;
   color: #9ba7b6;
-  padding: 24px 0;
+  padding: 20px 0;
   border-top: 1px solid #253b59;
+}
+
+@media (max-width: 800px) {
+  .header-content-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .header-search-bar {
+    max-width: 100%;
+  }
 }
