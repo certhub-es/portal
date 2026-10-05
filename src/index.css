@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@600;700;800;900&family=Roboto+Mono:wght@400;500&display=swap');
+
+:root {
+  --awsui-color-background-layout-main:       #0f1b2a;
+  --awsui-color-background-container-content: #16253b;
+  --awsui-color-background-container-header:  #1d2f47;
+  --awsui-color-background-input-default:     #121d2d;
+  --awsui-color-background-item-hover:        #233957;
+  --awsui-color-background-item-selected:     #1d3b63;
+
+  --awsui-color-text-heading-default:         #fbfbfb;
+  --awsui-color-text-body-default:            #d1dbe5;
+  --awsui-color-text-label:                   #9ba7b6;
+  --awsui-color-text-disabled:                #5f6b7a;
+  --awsui-color-text-accent:                  #539fe5;
+
+  --awsui-color-border-container-default:     #2b4162;
+  --awsui-color-border-input-default:         #415b7d;
+  --awsui-color-border-item-focused:          #539fe5;
+  --awsui-color-border-divider-default:       #253b59;
+
+  --awsui-color-brand:                        #ff9900;
+  --awsui-color-brand-active:                 #ec7211;
+  --awsui-color-status-success:               #29ad32;
+  --awsui-color-status-success-bg:            rgba(41, 173, 50, 0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--awsui-color-background-layout-main, #0f1b2a);
+  color: var(--awsui-color-text-body-default, #d1dbe5);
+  font-family: "Open Sans", "Helvetica Neue", Roboto, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.brand-icon-box {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #ff9900, #ff5500);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #0f1b2a;
+  box-shadow: 0 2px 8px rgba(255, 153, 0, 0.35);
+}
+
+.hero-gradient-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: #fbfbfb;
+}
+
+.hero-gradient-title span {
+  background: linear-gradient(135deg, #539fe5 0%, #ff9900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-box {
+  background: #16253b;
+  border: 1px solid #2b4162;
+  border-radius: 8px;
+  padding: 18px 24px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ff9900;
+}
+
+.stat-desc {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9ba7b6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cert-card-wrapper {
+  transition: all 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-card-wrapper:hover {
+  transform: translateY(-4px);
+}
