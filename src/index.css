@@ -62,18 +62,30 @@ body {
   gap: 16px;
 }
 
-/* LEFT: LOGO (62px) & TEXT */
+/* LEFT: LOGO & TEXT */
 .header-brand-box {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex-shrink: 0;
+  position: relative;
 }
 
 .header-brand-logo {
-  width: 62px;
-  height: 62px;
+  width: 76px;
+  height: 76px;
   object-fit: contain;
+  margin-top: -6px;
+  margin-bottom: -16px;
+  position: relative;
+  z-index: 10;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+}
+
+.header-brand-logo:hover {
+  transform: scale(1.05) translateY(2px);
+  filter: drop-shadow(0 6px 14px rgba(83, 159, 229, 0.4));
 }
 
 .header-brand-texts {
