@@ -30,20 +30,6 @@ Main portal and official interactive roadmap catalog for **CertHub** ([certhub.e
 
 ---
 
-## Platform Architecture
-
-```mermaid
-flowchart TD
-    User["Visitor / Engineer"] --> CloudFront["Amazon CloudFront (certhub.es)"]
-    CloudFront --> S3["Amazon S3 (Portal Static Build)"]
-    S3 --> Portal["CertHub Main Portal"]
-    Portal --> Campus1["/aws/ai-practitioner (AIF-C01 Campus)"]
-    Portal --> Campus2["/aws/solutions-architect (SAA-C03 Campus)"]
-    Portal --> Campus3["/aws/cloud-practitioner (CLF-C02 Campus)"]
-```
-
----
-
 ## Development & Build
 
 ```bash
