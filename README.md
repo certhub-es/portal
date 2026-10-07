@@ -1,4 +1,4 @@
-﻿# CertHub - Main Portal & Certification Roadmaps
+# CertHub - Main Portal & Certification Roadmaps
 
 <p align="center">
   <img src="./imgs/logo.svg" alt="CertHub Logo" width="160"/>
@@ -21,32 +21,32 @@ Main portal and official interactive roadmap catalog for **CertHub** ([certhub.e
 
 ---
 
-## ⚡ Highlights
+## Highlights
 
-- 🧭 **Certification Roadmaps:** Structured career pathways from Foundational to Specialty level.
-- 🎯 **Campus Hub Gateway:** Direct navigation and single-sign-on entry to individual exam study campuses.
-- 🎨 **Enterprise UI:** Designed with AWS Cloudscape components for clean layout, responsive grids, and instant search filtering.
-- 🚀 **Edge CDN Delivery:** Optimized static delivery via Amazon CloudFront and S3.
+- **Certification Roadmaps:** Structured career pathways from Foundational to Specialty level.
+- **Campus Hub Gateway:** Direct navigation and single-sign-on entry to individual exam study campuses.
+- **Enterprise UI:** Designed with AWS Cloudscape components for clean layout, responsive grids, and instant search filtering.
+- **Edge CDN Delivery:** Optimized static delivery via Amazon CloudFront and S3.
 
 ---
 
-## 🏛️ Platform Architecture
+## Platform Architecture
 
-`mermaid
+```mermaid
 flowchart TD
-    User["🌐 Visitor / Engineer"] --> CloudFront["🚀 Amazon CloudFront (certhub.es)"]
-    CloudFront --> S3["☁️ Amazon S3 (Portal Static Build)"]
-    S3 --> Portal["⚡ CertHub Main Portal"]
-    Portal --> Campus1["📚 /aws/ai-practitioner (AIF-C01 Campus)"]
-    Portal --> Campus2["📚 /aws/solutions-architect (SAA-C03 Campus)"]
-    Portal --> Campus3["📚 /aws/cloud-practitioner (CLF-C02 Campus)"]
-`
+    User["Visitor / Engineer"] --> CloudFront["Amazon CloudFront (certhub.es)"]
+    CloudFront --> S3["Amazon S3 (Portal Static Build)"]
+    S3 --> Portal["CertHub Main Portal"]
+    Portal --> Campus1["/aws/ai-practitioner (AIF-C01 Campus)"]
+    Portal --> Campus2["/aws/solutions-architect (SAA-C03 Campus)"]
+    Portal --> Campus3["/aws/cloud-practitioner (CLF-C02 Campus)"]
+```
 
 ---
 
-## 🚀 Development & Build
+## Development & Build
 
-`ash
+```bash
 # Install dependencies
 npm install
 
@@ -55,11 +55,11 @@ npm run dev
 
 # Build for production
 npm run build
-`
+```
 
 ---
 
-## ☕ Support & Organization
+## Support & Organization
 
 - **Organization:** [CertHub (certhub-es)](https://github.com/certhub-es)
 - **Lead Developer:** Daniel Ibáñez - [@danielibabet](https://github.com/danielibabet)
