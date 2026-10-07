@@ -12,8 +12,6 @@
 </p>
 
 <p align="center">
-  <a href="https://buymeacoffee.com/dibanezb">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" width="150" />
   </a>
 </p>
 
@@ -49,4 +47,3 @@ npm run build
 
 - **Organization:** [CertHub (certhub-es)](https://github.com/certhub-es)
 - **Lead Developer:** Daniel Ibáñez - [@danielibabet](https://github.com/danielibabet)
-- Support CertHub: [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/dibanezb)
