@@ -1,7 +1,7 @@
 ﻿# CertHub - Main Portal & Certification Roadmaps
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/certhub-es/portal/master/imgs/logo.svg" alt="CertHub Logo" width="160"/>
+  <img src="./imgs/logo.svg" alt="CertHub Logo" width="160"/>
 </p>
 
 <p align="center">
