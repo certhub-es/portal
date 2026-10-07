@@ -1,6 +1,10 @@
 ﻿# CertHub - Main Portal & Certification Roadmaps
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/certhub-es/portal/master/imgs/logo.svg" alt="CertHub Logo" width="160"/>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/CertHub-Certification_Portal-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="CertHub"/>
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"/>
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
