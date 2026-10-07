@@ -1,101 +1,62 @@
-# 🌐 CertHub Portal (`certhub.es`)
+﻿# CertHub - Main Portal & Certification Roadmaps
 
 <p align="center">
-  <img src="public/logo.svg" alt="CertHub Logo" width="100" />
+  <img src="https://img.shields.io/badge/CertHub-Certification_Portal-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="CertHub"/>
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"/>
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+  <img src="https://img.shields.io/badge/AWS_Cloudscape-Design_System-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="Cloudscape"/>
 </p>
 
 <p align="center">
-  <strong>Plataforma integral de estudio de certificaciones oficiales de cloud y tecnología.</strong>
+  <a href="https://buymeacoffee.com/dibanezb">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="42" width="150" />
+  </a>
 </p>
 
-<p align="center">
-  <a href="https://certhub.es">https://certhub.es</a>
-</p>
+Main portal and official interactive roadmap catalog for **CertHub** ([certhub.es](https://certhub.es)), serving as the centralized gateway to cloud certification campuses (AWS, Cloud AI, Security, DevOps).
 
 ---
 
-## 📌 Visión General
+## ⚡ Highlights
 
-**CertHub** es el portal central y catálogo unificado de itinerarios de certificación técnica (AWS, Microsoft Azure, Google Cloud, HashiCorp Terraform y GitHub). 
-
-Actúa como punto de acceso principal (landing SPA) hacia los diferentes campus de estudio especializados e interactivos desplegados bajo la misma infraestructura global (ej. `/aws/ai-practitioner/`).
-
----
-
-## 🛠️ Stack Tecnológico & Diseño
-
-- **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Design System**: [AWS Cloudscape Design System](https://cloudscape.design/) (`@cloudscape-design/components`, `@cloudscape-design/global-styles`) en Dark Mode nativo.
-- **Tipografías**: Google Fonts (*Outfit*, *Open Sans*, *Roboto Mono*).
-- **Iconografía e Insignias**: SVGs y PNGs oficiales optimizados por proveedor.
-- **Arquitectura**: Single Page Application (SPA) ultra ligera con renderizado estático en cliente.
-- **Despliegue & CDN**: AWS S3 (`certhub-portal`) + AWS CloudFront (`EWFKMUPN8D7A2`) + Route 53 con SSL/TLS automático vía ACM.
+- 🧭 **Certification Roadmaps:** Structured career pathways from Foundational to Specialty level.
+- 🎯 **Campus Hub Gateway:** Direct navigation and single-sign-on entry to individual exam study campuses.
+- 🎨 **Enterprise UI:** Designed with AWS Cloudscape components for clean layout, responsive grids, and instant search filtering.
+- 🚀 **Edge CDN Delivery:** Optimized static delivery via Amazon CloudFront and S3.
 
 ---
 
-## 🏛️ Estructura del Repositorio
+## 🏛️ Platform Architecture
 
-```text
-certhub/
-├── imgs/                       # Recursos gráficos fuente categorizados
-│   ├── aws/                    # Insignias y logos de Amazon Web Services
-│   ├── azure/                  # Insignias SVGs oficiales de Microsoft Learn
-│   ├── gcp/                    # Insignias oficiales de Google Cloud
-│   ├── github/                 # Insignias y logos oficiales de GitHub
-│   └── terraform/              # Badges oficiales de HashiCorp Terraform
-├── public/                     # Assets públicos estáticos servidos en dist/
-│   ├── aws/
-│   ├── azure/
-│   ├── gcp/
-│   ├── github/
-│   ├── terraform/
-│   └── logo.svg                # Logotipo oficial de CertHub (Favicon & Brand)
-├── src/
-│   ├── App.jsx                 # Componente raíz: Catálogo, filtros, búsqueda y render de fichas
-│   ├── index.css               # Sistema de diseño dark, cabecera solapada y media queries
-│   └── main.jsx                # Punto de entrada de React
-├── index.html                  # Plantilla HTML5 con SEO y metadatos
-├── package.json                # Dependencias y scripts de build/deploy
-└── vite.config.js              # Configuración de compilación Vite
-```
+`mermaid
+flowchart TD
+    User["🌐 Visitor / Engineer"] --> CloudFront["🚀 Amazon CloudFront (certhub.es)"]
+    CloudFront --> S3["☁️ Amazon S3 (Portal Static Build)"]
+    S3 --> Portal["⚡ CertHub Main Portal"]
+    Portal --> Campus1["📚 /aws/ai-practitioner (AIF-C01 Campus)"]
+    Portal --> Campus2["📚 /aws/solutions-architect (SAA-C03 Campus)"]
+    Portal --> Campus3["📚 /aws/cloud-practitioner (CLF-C02 Campus)"]
+`
 
 ---
 
-## 🚀 Proveedores y Certificaciones Soportadas
+## 🚀 Development & Build
 
-| Proveedor | Badges Disponibles | Estado en la Plataforma |
-| :--- | :---: | :--- |
-| **AWS** | 12 | **AI Practitioner (Disponible)** · 11 En desarrollo |
-| **Microsoft Azure** | 16 | 16 Fichas oficiales (Fundamentals, Associate, Expert, Specialty) |
-| **Google Cloud** | 12 | 12 Fichas oficiales (Cloud Digital Leader, ACE, PCA, ML, etc.) |
-| **Terraform** | 2 | Terraform Associate 003 · Authoring & Operations |
-| **GitHub** | 5 | Foundations, Actions, Security, Copilot, Administration |
-
----
-
-## 💻 Desarrollo Local
-
-```bash
-# 1. Clonar el repositorio privado
-git clone https://github.com/certhub-es/portal.git
-cd portal
-
-# 2. Instalar dependencias
+`ash
+# Install dependencies
 npm install
 
-# 3. Iniciar servidor de desarrollo local
+# Start local dev server
 npm run dev
-```
+
+# Build for production
+npm run build
+`
 
 ---
 
-## ☁️ Compilación y Despliegue a Producción
+## ☕ Support & Organization
 
-El proyecto incluye un pipeline simplificado mediante script npm para compilar, sincronizar a S3 e invalidar la distribución de CloudFront:
-
-```bash
-npm run deploy
-```
-
-> **Comando ejecutado internamente:**
-> `vite build && aws s3 sync dist/ s3://certhub-portal/ --exclude "aws/*" && aws cloudfront create-invalidation --distribution-id EWFKMUPN8D7A2 --paths "/index.html" "/" "/assets/*"`
+- **Organization:** [CertHub (certhub-es)](https://github.com/certhub-es)
+- **Lead Developer:** Daniel Ibáñez - [@danielibabet](https://github.com/danielibabet)
+- Support CertHub: [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/dibanezb)
