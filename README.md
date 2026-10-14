@@ -34,21 +34,6 @@ Main portal and official interactive roadmap catalog for **CertHub** ([certhub.e
 
 ---
 
-## Development & Build
-
-```bash
-# Install dependencies
-npm install
-
-# Start local dev server
-npm run dev
-
-# Build for production
-npm run build
-```
-
----
-
 ## Support & Organization
 
 - **Organization:** [CertHub (certhub-es)](https://github.com/certhub-es)
