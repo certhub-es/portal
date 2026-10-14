@@ -53,8 +53,8 @@ const PROVIDERS_DATA = [
         code: 'SAA-C03',
         title: 'Solutions Architect',
         fullName: 'AWS Certified Solutions Architect Associate',
-        active: false,
-        url: '#',
+        active: true,
+        url: '/aws/solutions-architect-associate/',
         badgeImg: '/assets/aws/solutions-architect.png',
         desc: 'Diseño de arquitecturas resilientes, de alto rendimiento, seguras y optimizadas en costes en la nube de Amazon.'
       },
